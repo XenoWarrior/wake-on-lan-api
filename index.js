@@ -11,7 +11,8 @@ app.use (function (error, req, res, next){
     //Catch json error
     res.status(400).send({
         status: 400,
-        message: "Invalid JSON provided",
+        message: "Bad Request",
+        error: error
     });
 });
 
