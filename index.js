@@ -7,6 +7,14 @@ const port = 7878;
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
+app.use (function (error, req, res, next){
+    //Catch json error
+    res.status(400).send({
+        status: 400,
+        message: "Invalid JSON provided",
+    });
+});
+
 app.get('/', (req, res) => {
     res.send('Hello, world!');
 });
